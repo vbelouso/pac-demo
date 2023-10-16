@@ -5,7 +5,7 @@ metadata:
   name: pac-demo
   annotations:
     pipelinesascode.tekton.dev/on-cel-expression: |
-    (event == "pull_request" || event == "push") && !("dashboard/*".pathChanged())
+      (event == "push" || event == "pull_request") && !("dashboard/*".pathChanged())
     # The event we are targeting as seen from the webhook payload
     # this can be an array too, i.e: [pull_request, push]
     pipelinesascode.tekton.dev/on-event: "[pull_request, push]"
